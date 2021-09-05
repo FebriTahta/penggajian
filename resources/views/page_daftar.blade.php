@@ -223,10 +223,11 @@
 									href="/deletepegawai/{{$user->idpegawai}}" 
 									type="submit" class="btn btn-primary"
 								>Hapus</a> -->
-								<input type="hidden" id="pegawai" value="{{$user->idpegawai}}" require>
-								<button class="btn btn-danger btn-sm" onClick="ConfirmDelete()">
+								
+								<!-- <button class="btn btn-danger btn-sm" onClick="ConfirmDelete()">
 									hapus!
-								</button>
+								</button> -->
+								<a href="/deletepegawai/{{$user->idpegawai}}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete {{$user->idpegawai}}?');">Delete</a>
 								<a href="/update-pegawai/{{$user->idpegawai}}" class="btn btn-info btn-sm"  >
 									Update
 								</a>
@@ -245,14 +246,17 @@
 
 
 <script type="text/javascript">
-
-	var p = $('#pegawai').val();
-	console.log(p);
-      function ConfirmDelete()
-      {
-            if (confirm("hapus pegawai?"))
-        	location.href='/deletepegawai/'+p;
-      }
+	var x = $("#totalpeg").val();
+	
+	
+	
+		function ConfirmDelete()
+		{
+			var p = document.getElementById("pegawai").value;
+			console.log(p);
+				if (confirm("hapus pegawai?" +p))
+				location.href='/deletepegawai/'+p;
+		}
 
 </script>
 <script>
